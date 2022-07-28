@@ -7,11 +7,11 @@ body {
   margin: 0;
   display: flex;
   place-items: center;
-  min-width: 320px;
   min-height: 100vh;
 }
 #root {
   max-width: 1280px;
+  height: 100%;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
@@ -23,13 +23,18 @@ body {
   grid-template-rows: minmax(7rem, auto) repeat(5, 6rem);
 }
 .calculator-grid > button {
-  outline: 1px solid white;
+  outline: none;
   cursor: pointer;
   font-size: 2rem;
+  border: 1px solid black;
 }
 .calculator-grid > button:hover,
 .calculator-grid > button:focus {
   background-color: rgba(255, 255, 255, 0.6);
+}
+
+.calculator-grid > button:active {
+  transform: scale(0.9);
 }
 
 .span-two {
@@ -53,4 +58,46 @@ body {
 .output .current-operand {
   color: black;
   font-size: 2.5rem;
+}
+@keyframes buttonPop {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.75);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+footer {
+  position: absolute;
+  top: 1rem;
+  left: 0;
+  width: 100%;
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+.socials{
+  display: flex;
+  gap: .75rem;
+}
+.socials > svg {
+  cursor: pointer;
+  width: 2.25rem;
+  height: 2.5rem;
+}
+
+@media screen and (max-width: 768px) {
+  #root {
+    padding: 0;
+  }
+  .calculator-grid {
+    grid-template-columns: repeat(4, 5rem);
+    grid-template-rows: minmax(6rem, auto) repeat(5, 5rem);
+  }
 }
