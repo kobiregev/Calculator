@@ -5,7 +5,6 @@ import { Actions } from "./reducer/types";
 import { formatOperand } from "./utils";
 
 import reducer from "./reducer/reducer";
-import "./App.css";
 import { Footer } from "./components/common/Footer";
 
 const integerFormatter = new Intl.NumberFormat("en-us", {
